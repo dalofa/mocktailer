@@ -1,7 +1,11 @@
-total_bases: 10000000  # total bases to simulate across all isolates
+total_bases: 1000  # total bases to simulate across all isolates
 
 samples:
   isolate_A:
-    R1: mock_R1.fastq
-    R2: mock_R1.fastq
-    abundance: 0.5
+    R1: mockA_R1.fastq.gz
+    R2: mockA_R2.fastq.gz
+    abundance: 0.7
+  isolate_B:
+    R1: mockB_R1.fastq.gz
+    R2: mockB_R2.fastq.gz
+    abundance: 0.3

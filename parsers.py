@@ -13,12 +13,24 @@ def file_exists(filepath):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Argument parser for assembly mapping script.")
- 
+    
     parser.add_argument("-c",
                         "--config",
                         type=file_exists,
                         required=True,
                         help="Path to the mapping file.")
+    parser.add_argument("-o",
+                        "--out_prefix",
+                        type=str,
+                        required=True,
+                        help="Prefix for subsampled reads.")
+    parser.add_argument("-l",
+                        "--log_name",
+                        type=str,
+                        default="mocktailer.log",
+                        help="Path to write log to.")
+    
+    
     return parser.parse_args()
 
 # Parse config-file
@@ -47,5 +59,5 @@ def parse_config(config_path):
             "bases_to_sample": int(total_bases * abundance)
         }
 
-    return sample_dict
+    return total_bases, sample_dict
 
